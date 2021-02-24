@@ -5,7 +5,6 @@
 //Include statements
 #include <iostream>
 #include <string>
-#include <fstream>
 #include <iomanip>
 
 //Global declarations: Constants and type definitions only -- no variables
@@ -29,21 +28,14 @@ int main()
     std::pair <int, int> hitPercentage;
 
     bool allShipsSunk = false;
-    //std::ifstream inFile;
-    //inFile.open("Board.txt");
 
-    //Program logic
-    //If file did not open, print out error
-   //if (!inFile) {
-        std::cout << "File did not open!" << std::endl;
-    }
-
+    //TODO: Initialize the game board to a standard 10x10 grid.
     //Initialize the characters for the board from text file
     //Also initializes the console board to blank water
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             char boardPiece;
-            inFile >> boardPiece;
+            //inFile >> boardPiece;
             gameBoard[i][j] = boardPiece;
             consoleBoard[i][j] = '~';
         }
@@ -79,6 +71,7 @@ void fire(char board[ROWS][COLUMNS], char consoleBoard[ROWS][COLUMNS], double pe
     std::cout << "Enter an (x,y) coordinate from 'a'/'A'  to 'y'/'Y'(inclusive), 1 to 25 (inclusive)" << std::endl;
     std::cout << "Enter it in the format: (A 12) or (a 12). Letter(uppercase or lowercase), then whole number" << std::endl;
 
+    //TODO: Separate char input into a function
     std::cout << "Enter your column" << std::endl;
     //validates column input(char)
     do {
@@ -119,7 +112,7 @@ void fire(char board[ROWS][COLUMNS], char consoleBoard[ROWS][COLUMNS], double pe
 
     inCol = charToInt(charCol);     //converts char to int
     inRow--;    //decrease so that it doesn't go out of bounds within the array
-    
+
     //     ?
     //   ? # ?      Check grid around # to see if ship has been hit already or not
     //     ?
